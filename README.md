@@ -11,6 +11,12 @@ __This plugin is experimental. Use at your own risk.__
       },
       'right': function() {
         console.log('Swiped to right');
+      },
+      'up': function() {
+        console.log('Swiped to up');
+      },
+      'down': function() {
+        console.log('Swiped to down');
       }
     });
 ```
