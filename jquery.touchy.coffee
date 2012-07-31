@@ -28,7 +28,6 @@
 
       # events
       @$el.bind 'touchstart', (event) =>
-        event.preventDefault()
         @fingerCount = event.originalEvent.touches.length
 
         if @fingerCount == 1
@@ -38,7 +37,6 @@
           touchCancel(event)
 
       @$el.bind 'touchmove', (event) =>
-        event.preventDefault()
         if event.originalEvent.touches.length == 1
           @curX = event.originalEvent.touches[0].pageX
           @curY = event.originalEvent.touches[0].pageY
@@ -46,7 +44,6 @@
           touchCancel(event)
 
       @$el.bind 'touchend', (event) =>
-        event.preventDefault()
         if @fingerCount == 1 and @curX != 0
           @swipeLength = Math.round( Math.sqrt( Math.pow(@curX - @startX, 2) + Math.pow(@curY - @startY, 2)))
 
@@ -56,7 +53,7 @@
 
         touchCancel(event)
 
-      @
+      return this
 
     touchCancel = (event) =>
       @fingerCount = 0
